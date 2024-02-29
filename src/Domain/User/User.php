@@ -15,7 +15,7 @@ class User implements JsonSerializable
     private string $lastName;
 
     public function __construct(
-        private readonly int|null $id,
+        private int|null $id,
         string $username,
         string $firstName,
         string $lastName
