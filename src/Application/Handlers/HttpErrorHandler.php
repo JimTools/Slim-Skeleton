@@ -50,7 +50,6 @@ class HttpErrorHandler extends SlimErrorHandler
 
         if (
             !($exception instanceof HttpException)
-            && $exception instanceof Throwable
             && $this->displayErrorDetails
         ) {
             $description = $exception->getMessage();

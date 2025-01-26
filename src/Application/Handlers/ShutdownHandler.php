@@ -39,18 +39,18 @@ class ShutdownHandler
     }
 
     /**
-     * @param array{type: int, message: string, file: string, line: int} $error
+     * @param array{type: int, message: string, file: string, line: int}|null$error
      */
-    private function getErrorMessage(array $error = null): string
+    private function getErrorMessage(?array $error = null): string
     {
         if (!$this->displayErrorDetails) {
             return 'An error while processing your request. Please try again later.';
         }
 
-        $errorFile = $error['file'];
-        $errorLine = $error['line'];
-        $errorMessage = $error['message'];
-        $errorType = $error['type'];
+        $errorFile = $error['file'] ?? null;
+        $errorLine = $error['line'] ?? null;
+        $errorMessage = $error['message'] ?? null;
+        $errorType = $error['type'] ?? null;
 
         return match ($errorType) {
             E_USER_WARNING => "WARNING: {$errorMessage}",
